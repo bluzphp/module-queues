@@ -1,0 +1,12 @@
+{
+  "name": "bluzphp/module-queues",
+  "type": "bluz-module",
+  "license": "MIT",
+  "description": "bluz queues module",
+  "require": {
+    "bluzphp/framework": "~7.10",
+    "bluzphp/composer-plugin": "~2.1",
+    "enqueue/enqueue": "~0.9",
+    "enqueue/redis": "~0.9"
+  }
+}
