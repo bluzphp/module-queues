@@ -30,6 +30,8 @@ return function () {
             __('Queues'),
         ]
     );
+    $this->setTemplate('index.phtml');
+
     /** @var \Interop\Queue\ConnectionFactory $driver */
     $driver = Config::get('queue', 'providers', 'redis')();
     $context = $driver->createContext();
@@ -37,7 +39,11 @@ return function () {
 
     $consumer = $context->createConsumer($queue);
 
-    $message = $consumer->receive();
+    $message = $consumer->receive(5);
+
+    if (null === $message) {
+        return;
+    }
 
     // process a message
     if (random_int(0, 1)) {
@@ -48,5 +54,4 @@ return function () {
         Messages::addError('Message has been rejected');
     }
 
-    return 'index.phtml';
 };

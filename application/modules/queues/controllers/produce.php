@@ -30,6 +30,8 @@ return function () {
             __('Queues'),
         ]
     );
+    $this->setTemplate('index.phtml');
+
     /** @var \Interop\Queue\ConnectionFactory $driver */
     $driver = Config::get('queue', 'providers', 'redis')();
     $context = $driver->createContext();
@@ -48,6 +50,4 @@ return function () {
     $producer->send($queue, $message);
 
     Messages::addNotice('Message has been created');
-
-    return 'index.phtml';
 };
