@@ -25,7 +25,6 @@ return function () {
     $context = $driver->createContext();
     $queue = $context->createQueue('bluz:queue:messages');
 
-
     $consumer = $context->createConsumer($queue);
 
     while (true) {
@@ -34,10 +33,10 @@ return function () {
         // process a message
         if (random_int(0, 1)) {
             $consumer->acknowledge($message);
-            echo("Message was acknowledged\n");
+            echo("Message has been acknowledged\n");
         } else {
             $consumer->reject($message);
-            echo("Message was rejected\n");
+            echo("Message has been rejected\n");
         }
     }
 };

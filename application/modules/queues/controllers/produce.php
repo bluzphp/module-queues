@@ -30,4 +30,24 @@ return function () {
             __('Queues'),
         ]
     );
+    $this->setTemplate('index.phtml');
+
+    /** @var \Interop\Queue\ConnectionFactory $driver */
+    $driver = Config::get('queue', 'providers', 'redis')();
+    $context = $driver->createContext();
+    $queue = $context->createQueue('bluz:queue:messages');
+
+    $message = $context->createMessage(
+        'Message',
+        [
+            'title' => 'Hello!',
+            'body' => 'How are you?'
+        ]
+    );
+
+    $producer = $context->createProducer();
+
+    $producer->send($queue, $message);
+
+    Messages::addNotice('Message has been created');
 };

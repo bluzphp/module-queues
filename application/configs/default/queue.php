@@ -9,7 +9,7 @@ return [
     'enabled' => true,
     'adapter' => 'redis',
     'providers' => [
-        'redis' => function() {
+        'redis' => function () {
             // connect to Redis at example.com port 1000 using phpredis extension
             $factory = new \Enqueue\Redis\RedisConnectionFactory([
                 'scheme' => 'redis',
