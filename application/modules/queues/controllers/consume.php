@@ -53,5 +53,4 @@ return function () {
         $consumer->reject($message);
         Messages::addError('Message has been rejected');
     }
-
 };
