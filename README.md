@@ -1,8 +1,6 @@
 # Module Queues for Bluz Skeleton
 ## Achievements
 
-[![PHP >= 7.1+](https://img.shields.io/packagist/php-v/bluzphp/module-queues.svg?style=flat)](https://php.net/)
-
 [![Latest Stable Version](https://img.shields.io/packagist/v/bluzphp/module-queues.svg?label=version&style=flat)](https://packagist.org/packages/bluzphp/module-queues)
 
 [![Build Status](https://img.shields.io/travis/bluzphp/module-queues/master.svg?style=flat)](https://travis-ci.org/bluzphp/module-queues)
